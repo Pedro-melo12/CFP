@@ -40,6 +40,25 @@ public class UsersController {
         }
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateUser(@PathVariable UUID id, @RequestBody @Valid RegisterDTO dto) {
+        try {
+            return userRepository.findById(id)
+                    .map(user -> {
+                        user.setNome(dto.nome());
+                        user.setEmail(dto.email());
+                        user.setCpf(dto.cpf());
+                        user.setPassword(new BCryptPasswordEncoder().encode(dto.password()));
+                        userRepository.save(user);
+                        return ResponseEntity.ok("Usuário atualizado com sucesso.");
+                    })
+                    .orElse(ResponseEntity.status(404).body("Usuário não encontrado."));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Erro ao atualizar usuário: " + e.getMessage());
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable UUID id) {
         try {
