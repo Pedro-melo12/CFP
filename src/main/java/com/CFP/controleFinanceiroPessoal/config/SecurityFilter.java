@@ -1,4 +1,4 @@
-package com.CFP.controleFinanceiroPesooal.config;
+package com.CFP.controleFinanceiroPessoal.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -11,9 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.CFP.controleFinanceiroPesooal.model.Users;
-import com.CFP.controleFinanceiroPesooal.repository.UsersRepository;
-import com.CFP.controleFinanceiroPesooal.service.TokenService;
+import com.CFP.controleFinanceiroPessoal.model.Users;
+import com.CFP.controleFinanceiroPessoal.repository.UsersRepository;
+import com.CFP.controleFinanceiroPessoal.service.TokenService;
 
 import java.io.IOException;
 import java.util.Optional;

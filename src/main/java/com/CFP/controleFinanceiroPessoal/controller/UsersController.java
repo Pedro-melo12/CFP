@@ -1,19 +1,18 @@
-package com.CFP.controleFinanceiroPesooal.controller;
+package com.CFP.controleFinanceiroPessoal.controller;
 
-import com.CFP.controleFinanceiroPesooal.dto.RegisterDTO;
-import com.CFP.controleFinanceiroPesooal.model.Users;
-import com.CFP.controleFinanceiroPesooal.repository.UsersRepository;
+import com.CFP.controleFinanceiroPessoal.dto.RegisterDTO;
+import com.CFP.controleFinanceiroPessoal.model.Users;
+import com.CFP.controleFinanceiroPessoal.repository.UsersRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
-@RequestMapping("register")
+@RequestMapping("users")
 public class UsersController {
 
     @Autowired
@@ -38,6 +37,21 @@ public class UsersController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body("Erro interno: " + e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> delete(@PathVariable UUID id) {
+        try {
+            if (userRepository.existsById(id)) {
+                userRepository.deleteById(id);
+                return ResponseEntity.ok("Usuário deletado com sucesso.");
+            } else {
+                return ResponseEntity.status(404).body("Usuário não encontrado.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Erro ao deletar: " + e.getMessage());
         }
     }
 

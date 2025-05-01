@@ -1,4 +1,4 @@
-package com.CFP.controleFinanceiroPesooal.model;
+package com.CFP.controleFinanceiroPessoal.model;
 
 import java.util.Collection;
 import java.util.Collections;
