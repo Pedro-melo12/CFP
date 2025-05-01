@@ -16,12 +16,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-public class Users implements UserDetails  {
+public class Users implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -35,18 +34,16 @@ public class Users implements UserDetails  {
 
     private String password;
 
-     @Override
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    // ✅ Aqui o Spring busca o "login" do usuário (use nome ou email, como preferir)
     @Override
     public String getUsername() {
-        return email; // ou: return email;
+        return email;
     }
 
-    // ✅ Estes métodos informam se a conta está ativa — simplificamos retornando true
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -66,5 +63,5 @@ public class Users implements UserDetails  {
     public boolean isEnabled() {
         return true;
     }
-}
 
+}
