@@ -1,4 +1,4 @@
-package com.CFP.controleFinanceiroPesooal.service;
+package com.CFP.controleFinanceiroPessoal.service;
 
 
 
@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.CFP.controleFinanceiroPesooal.repository.UsersRepository;
+import com.CFP.controleFinanceiroPessoal.repository.UsersRepository;
 
 
 

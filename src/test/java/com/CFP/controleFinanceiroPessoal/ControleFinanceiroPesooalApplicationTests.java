@@ -1,4 +1,4 @@
-package com.CFP.controleFinanceiroPesooal;
+package com.CFP.controleFinanceiroPessoal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

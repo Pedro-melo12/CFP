@@ -1,6 +1,6 @@
-package com.CFP.controleFinanceiroPesooal.service;
+package com.CFP.controleFinanceiroPessoal.service;
 
-import com.CFP.controleFinanceiroPesooal.model.Users;
+import com.CFP.controleFinanceiroPessoal.model.Users;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
