@@ -3,6 +3,8 @@ package com.CFP.controleFinanceiroPessoal.controller;
 import com.CFP.controleFinanceiroPessoal.dto.RegisterDTO;
 import com.CFP.controleFinanceiroPessoal.model.Users;
 import com.CFP.controleFinanceiroPessoal.repository.UsersRepository;
+
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,8 @@ public class UsersController {
     @Autowired
     private UsersRepository userRepository;
 
-    @PostMapping
+    @PostMapping("/register")
+    @Transactional
     public ResponseEntity<?> register(@RequestBody @Valid RegisterDTO registerDTO) {
         try {
             if (userRepository.findByEmail(registerDTO.email()).isPresent()) {
@@ -41,6 +44,7 @@ public class UsersController {
     }
 
     @PutMapping("/{id}")
+    @Transactional
     public ResponseEntity<?> updateUser(@PathVariable UUID id, @RequestBody @Valid RegisterDTO dto) {
         try {
             return userRepository.findById(id)
@@ -60,6 +64,7 @@ public class UsersController {
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity<?> delete(@PathVariable UUID id) {
         try {
             if (userRepository.existsById(id)) {
