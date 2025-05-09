@@ -17,9 +17,7 @@ import com.CFP.controleFinanceiroPessoal.dto.AuthDTO;
 import com.CFP.controleFinanceiroPessoal.model.Users;
 import com.CFP.controleFinanceiroPessoal.service.TokenService;
 
-
 @RestController
-
 @RequestMapping("auth")
 public class AuthenticationController {
 
