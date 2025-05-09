@@ -32,4 +32,15 @@ public class Despesas {
     @JoinColumn(name = "user_id")
     private Users usuario;
 
+
+    public Despesas(String descricao, BigDecimal valor, LocalDate data, CategoriaDespesas categoria, Users usuario) {
+        this.descricao = descricao;
+        this.valor = valor;
+        this.data = data;
+        this.categoria = categoria;
+        this.usuario = usuario;
+    }
+
 }
+
+

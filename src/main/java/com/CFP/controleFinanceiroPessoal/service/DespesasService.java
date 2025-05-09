@@ -31,7 +31,6 @@ public class DespesasService {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         Despesas despesa = new Despesas(
-                UUID.randomUUID(),
                 despesasDTO.descricao(),
                 despesasDTO.valor(),
                 despesasDTO.data(),
